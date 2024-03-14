@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `etapes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nameEtape` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `evenements` (
   PRIMARY KEY (`id`),
   KEY `idOpp` (`idOpp`),
   KEY `idEtape` (`idEtape`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `opportunités` (
   `idEtape` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idEtape` (`idEtape`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Contraintes pour les tables déchargées
