@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commercial</title>
+    <script src="../script.js" defer></script>
 </head>
 <body>
     <h1>Ajouter une opportunités</h1>
-    <form action="addOpportunités.php" method="POST">
+    <form action="../controller/controller.php" method="POST" id="post-opp">
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom">
         <br>
@@ -32,5 +33,7 @@
 
         <input type="submit" value="Envoyer">
     </form>
+    <a href="../index.php"><button>Retour</button></a>
+    <p id="response"></p>
 </body>
 </html>

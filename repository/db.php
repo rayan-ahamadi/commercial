@@ -2,11 +2,10 @@
     class connect_db{
 
         public $servername = "localhost";
-        public $username = "root";
-        public $password = "root";
+        public $username = "rayan";
+        public $password = "qxd8enkm";
         public $dbname = "commercial_db";
         
-
 
         function addOpportunités ($nom,$prenom,$tel,$email,$idEtape){
             try{
