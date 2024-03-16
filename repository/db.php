@@ -1,10 +1,24 @@
 <?php
-    class connect_db{
+    require_once __DIR__ . '/../vendor/autoload.php';
+    use Dotenv\Dotenv as Dotenv;
 
-        public $servername = "localhost";
-        public $username = "rayan";
-        public $password = "qxd8enkm";
-        public $dbname = "commercial_db";
+    class connect_db{
+       
+
+        public $servername;
+        public $username;
+        public $password;
+        public $dbname;
+    
+        public function __construct() {
+            //__DIR__ est la constante magique pour désigner le chemin absolu de ce fichier
+            $dotenv = Dotenv::createImmutable(__DIR__."/../");
+            $dotenv->load();
+            $this->servername = $_ENV["SERVERNAME"]; 
+            $this->username = $_ENV["USERNAME"];
+            $this->password = $_ENV["PASSWORD"];
+            $this->dbname   = $_ENV["DB_NAME"];
+        }
         
 
         function addOpportunités ($nom,$prenom,$tel,$email,$idEtape){

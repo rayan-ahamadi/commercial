@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Ajouter une opportunités</h1>
-    <form action="../controller/controller.php" method="POST" id="post-opp">
+    <form action="../controller/oppController.php" method="POST" id="post-opp">
         <label for="nom">Nom</label>
         <input type="text" name="nom" id="nom">
         <br>
