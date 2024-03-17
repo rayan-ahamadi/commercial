@@ -47,6 +47,18 @@
           }
         }
 
+        function getEvents(){
+            try{
+                $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+                $sql = "SELECT evenements.id,idOpp,evenements.idEtape,nom,prenom,actions FROM evenements INNER JOIN opportunités ON evenements.idOpp = opportunités.id";
+                $response = $conn->query($sql);
+                $conn->close();
+                return $response;
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
+        }
+
 
     
     }

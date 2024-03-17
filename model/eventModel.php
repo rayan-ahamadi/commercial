@@ -26,6 +26,11 @@ class eventModel extends eventRepository{
     return $response;
   }
 
+  public function getAllEvent(){
+    $response = $this->getEvents();
+    return $response;
+  }
+
 }
 
 ?>
