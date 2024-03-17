@@ -8,6 +8,7 @@
 <body>
     <h1>Gestion des prospections</h1>
     <a href="template/addOppTemplate.php"><button>Ajouter une opportunité</button></a>
+    <a href="template/listOppTemplate.php"><button>Afficher les opportunités</button></a>
     <a href="template/addEventTemplate.php"><button>Ajouter un événements</button</a>
 </body>
 </html>

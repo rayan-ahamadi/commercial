@@ -24,10 +24,27 @@ class oppModel extends oppRepository{
         return $response;
     }
 
+    public function modifOpportunité($id){
+        $response = $this->modifOpportunités($id,$this->nom, $this->prenom, $this->tel, $this->email, $this->idEtape);
+        return $response;
+    }
+
     public function getOpportunité(){
         $response = $this->getOpportunités();
         return $response;
     }
+
+    public function getOpportunitéById($id){
+        $response = $this->getOppById($id);
+        return $response;
+    }
+
+    public function deleteOpportunité($id){
+        //On a d'abord besoin de supprimer les événements liés à cette opportunité
+        $this->deleteAllEventById($id); 
+        $response = $this->deleteOpp($id);
+        return $response;
+    }   
 
 }
 

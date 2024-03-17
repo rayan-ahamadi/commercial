@@ -35,6 +35,27 @@
            
         }
 
+        function modifOpportunités ($id,$nom,$prenom,$tel,$email,$idEtape){
+            try{
+                $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+                $sql = "UPDATE opportunités 
+                        SET nom = '{$nom}',
+                            prenom = '{$prenom}',
+                            tel = '{$tel}',
+                            email = '{$email}',
+                            idEtape= {$idEtape}
+                        WHERE id = '{$id}'
+                        ";
+                $response = $conn->query($sql);
+                $conn->close();
+                return $response;
+                
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
+           
+        }
+
         function getOpportunités(){
             try{
                 $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
@@ -46,6 +67,42 @@
                 return "".$e->getMessage()."";
             }
         }
+
+        function getOppById($id){
+            try{
+                $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+                $sql = "SELECT * FROM opportunités WHERE id = {$id}";
+                $response = $conn->query($sql);
+                $conn->close();
+                return $response;
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
+        }
+
+        function deleteOpp($id){
+            try{
+                $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+                $sql = "DELETE FROM opportunités WHERE id = '{$id}'";
+                $response = $conn->query($sql);
+                $conn->close();
+                return $response;
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
+        }
+
+        function deleteAllEventById($id){
+            try{
+              $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+              $sql = "DELETE FROM evenements WHERE idOpp = {$id}";
+              $response = $conn->query($sql);
+              $conn->close();
+              return $response;
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
+          }
     
     }
 ?>

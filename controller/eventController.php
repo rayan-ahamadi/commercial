@@ -1,4 +1,5 @@
 <?php
+  //Ici on récupère la valeur d'un en-tête personnalisé pour traiter les différentes requêtes
   require("../model/eventModel.php");
   $action = $_SERVER["HTTP_ACTION"];
   
