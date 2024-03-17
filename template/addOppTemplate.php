@@ -26,9 +26,21 @@
         <br>
 
         <label for="etape">Etapes</label>
-        <select type="select" name="etape" id="etape">
-            <option value="1">1</option>
+        <select name="etape" id="etape">
+        <?php
+                require("../model/etapeModel.php");
+                $etape = new etapeModel(0, "");
+                $response = $etape->getEtape();   
+                while ($row = $response->fetch_assoc()) {
+                    // Extraction des données de chaque ligne
+                    $id = $row['id'];
+                    $nom = $row['nameEtape'];
+                
+                    echo "<option value='$id'>$nom</option>";
+                }          
+        ?>
         </select>
+        
         <br>
 
         <input type="submit" value="Envoyer">

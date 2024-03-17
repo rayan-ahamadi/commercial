@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../vendor/autoload.php';
     use Dotenv\Dotenv as Dotenv;
 
-    class connect_db{
+    class oppRepository{
        
 
         public $servername;
@@ -33,6 +33,18 @@
                 return "".$e->getMessage()."";
             }
            
+        }
+
+        function getOpportunités(){
+            try{
+                $conn = new mysqli($this->servername, $this->username,$this->password,$this->dbname);
+                $sql = "SELECT * FROM opportunités";
+                $response = $conn->query($sql);
+                $conn->close();
+                return $response;
+            }catch (mysqli_sql_exception $e){
+                return "".$e->getMessage()."";
+            }
         }
     
     }
